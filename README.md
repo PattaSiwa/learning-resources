@@ -30,4 +30,4 @@
   
 ### Wireframe
 
-    ![wireframe image](/wireframe.png)
+<img src="wireframe.png">
