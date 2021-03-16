@@ -15,7 +15,7 @@
     Languages: HTML, CSS, JavaScript
     Framework/Library: Express, EJS, Mongoose
     Database: MongoDB
-    Design Pattern: MVC (Models, Views, Controllers)
+    Design Pattern: MVC (Models, Views, Controllers), RESTful API
 
 ### User Story
     - User will be able to view a collection of online learning resources
@@ -23,8 +23,8 @@
     - User will be albe to read a description of each resource (if provided)
     - User will be able to redirect themselves to the resources by clicking on the links
     - User with admin access will be able to use the full CRUD functionality
-      - Admin access will allow user to Edit a resource
-      - Admin access will allow user to Add a resource by providing a link, 
+      - Admin access will allow user to Create a resource by providing a link, 
+      - Admin access will allow user to Update/Edit a resource
         description and selecting an appropriate topic/subject
       - Admin access will allow user to Delete a resource
   
