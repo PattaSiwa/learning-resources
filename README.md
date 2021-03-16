@@ -30,4 +30,4 @@
   
 ### Wireframe
 
-<img src="wireframe.png">
+<img src="assets/img/wireframe.png">

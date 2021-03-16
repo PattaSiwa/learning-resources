@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT
 require('dotenv').config()
 const methodOverride = require('method-override')
+const PORT = process.env.PORT
 
 //database
 const mongoose = require('mongoose')
@@ -23,11 +23,19 @@ db.on('connected', () => { console.log("mongo connected") })
 db.on('disconnected', () => { console.log("mongo disconnected") })
 
 
-//set up middlewares
+//middlewares
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
+//controllers
+const resourceController = require('./controllers/resource')
+app.use('/resource', resourceController)
+
+// home page
+app.get('/', (req, res) => {
+    res.render('home.ejs')
+})
 
 
 app.listen(PORT, () => {
