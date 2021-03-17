@@ -15,10 +15,13 @@ html {
     box-sizing: inherit;
   }
 
+  *{ margin: 0%; }
 body {
     background-color: rgb(218, 233, 228);
     margin: 0;
     font-family: 'Englebert', sans-serif;
+    width: auto;
+    overflow: auto;
 }
 header {
     background-image: url('https://images.unsplash.com/photo-1476950648868-16c7dca9499c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80');
@@ -26,7 +29,7 @@ header {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    height: 100vh
+    height: 93vh
    }
 
 nav {
@@ -34,17 +37,30 @@ nav {
     justify-content: space-between;
     background-color: var(--white-beige);
     height: 7vh;
-    
+    position: sticky;
+    top:0;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
 }
 
 .nav-ul {
     width: 30%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     list-style: none;
     margin: 0;
     
 }
+#resource-link {
+    background-color: var(--orange);
+}
+#resource-link:hover {
+    background-color: var(--light-blue);
+}
+
 
 .nav-li {
    
@@ -146,7 +162,6 @@ span{
 .get-started-link {
     position: relative;
     text-decoration: none;
-    
     font-family: 'Englebert', sans-serif;
     font-size: 3rem;
     color: black;
@@ -157,4 +172,81 @@ span{
 .get-started-btn:hover{
     
     background-color: lightblue;
+}
+
+main {
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1404&q=80');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.about {
+    
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(245, 220, 151, 0.85);
+    
+    font-family: 'Montserrat', sans-serif;
+    overflow: auto;
+}
+
+.about-header{
+    text-align: center;
+    margin-top: 8rem;
+font-size: 4rem;
+}
+.about-text{
+    width: 80%;
+    font-size: 2rem;
+    margin: 4rem auto;
+    
+}
+footer {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(222, 229, 231);
+    height: 35vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+   
+    
+}
+.contacts{
+    margin-top: 1rem;
+    margin-left: 3rem;
+   
+}
+.contacts h3 {
+    font-size: 4rem;
+}
+.contact-text{
+    font-size: 2rem;
+}
+
+.contacts-content{
+    margin-top: 3rem;
+}
+.social-ul{
+    margin-top: 3rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.logo-footer {
+    width: 200px;
+    object-fit: scale-down;
+}
+   
+
+.logo-copy{
+    height: 100%;
+   text-align: center;
+    margin-top: 10rem;
+    margin-right: 3rem;
 }
