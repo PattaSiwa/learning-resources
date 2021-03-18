@@ -13,7 +13,7 @@
 ### Technologies used
     
     Languages: HTML, CSS, JavaScript
-    Framework/Library: Express, EJS, Mongoose
+    Framework/Library: Express, EJS, Mongoose, Bootstrap
     Database: MongoDB
     Design Pattern: MVC (Models, Views, Controllers), RESTful API
 

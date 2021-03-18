@@ -1,6 +1,11 @@
+
+
 header {
-    height: 15vh;
+    min-height: 15vh;
+    height:auto;
     background-color: rgb(131, 167, 201);
+    overflow: hidden;
+    
 } 
 
 h1 {
@@ -9,7 +14,9 @@ h1 {
     text-shadow: 3px 5px 2px #474747;
     position: relative;
     top: 3rem;
-    color: rgb(226, 142, 142)
+    color: rgb(226, 142, 142);
+    font-weight: 500;
+    margin-bottom: 2rem;
 
 }
 .red {
@@ -34,7 +41,9 @@ h1 {
     color: rgb(116, 43, 116)
 }
 
-ul {
+.re-ul {
+    margin-top: 3rem;
+    padding: 0 3rem;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -42,13 +51,16 @@ ul {
     flex-wrap: wrap;
 }
 
-.re-li {
-    border: 1px solid black;
-    width: 30%;
+
+
+.Math {
+    color: var(--red-orange)
+}
+.Games {
+    color: var(--light-blue)
 }
 
-img{
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+.card-title, .card-text, .btn {
+    font-size: 2rem;
+    transition: .3s;
 }
