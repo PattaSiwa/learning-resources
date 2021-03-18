@@ -113,63 +113,15 @@ main {
 .about-header{
     text-align: center;
     margin-top: 2em;
-    font-size: 4em;
+    font-size: 3.5em;
 }
 .about-text{
     width: 80%;
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 4rem auto;
     
 }
-footer {
-    font-family: 'Montserrat', sans-serif;
-    background-color: rgb(222, 229, 231);
-    min-height: 32vh;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-   
-    
-}
-.contacts{
-    margin-top: 1rem;
-    margin-left: 3rem;
-   
-}
-.contacts h3 {
-    font-size: 3rem;
-}
-.contact-text{
-    font-size: 1.5rem;
-}
 
-.contacts-content{
-    margin-top: 3rem;
-}
-.social-ul{
-    margin-top: 2rem;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.logo-footer {
-    width: 200px;
-    object-fit: scale-down;
-}
-   
-
-.logo-copy{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-   margin: auto;
-   text-align: center;
-    margin-right: 3rem;
-}
 
 @media screen and (max-width: 800px) {
     :root {
@@ -187,28 +139,6 @@ footer {
       header {
           background-size: scale-down;
       }
-    footer{
-        flex-wrap: wrap;
-        
-    }
-    .logo-copy {
-        margin: auto;
-    }
-
-    .logo{
-        height: 35px;
-    }
-    .logo-footer{
-        width: 100px;
-    }
-    .contacts{
-        margin:auto;
-        
-    }
-
-    .social-ul {
-        margin:1rem;
-        justify-content: start;
-    }
+    
 
   }
