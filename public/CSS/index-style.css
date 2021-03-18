@@ -1,0 +1,54 @@
+header {
+    height: 15vh;
+    background-color: rgb(131, 167, 201);
+} 
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    text-shadow: 3px 5px 2px #474747;
+    position: relative;
+    top: 3rem;
+    color: rgb(226, 142, 142)
+
+}
+.red {
+    color: var(--red-orange)
+}
+.orange {
+    color: var(--orange)
+}
+.yellow {
+    color: rgb(233, 233, 75);
+}
+.green {
+    color: green;
+}
+.blue {
+    color: var(--light-blue)
+}
+.dark-blue {
+    color: var(--dark-blue)
+}
+.purple {
+    color: rgb(116, 43, 116)
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.re-li {
+    border: 1px solid black;
+    width: 30%;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}

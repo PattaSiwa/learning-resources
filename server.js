@@ -4,6 +4,7 @@ require('dotenv').config()
 const methodOverride = require('method-override')
 const PORT = process.env.PORT
 
+
 //database
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODBURI

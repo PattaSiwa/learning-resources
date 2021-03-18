@@ -5,10 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="img/small-logo.png" />
+    <link rel="stylesheet" href="CSS/nav-style.css">
+    <link rel="stylesheet" href="CSS/index-style.css">
     <title>Learning Resource</title>
 </head>
 
 <body>
+    <nav>
+        <a href="/"> <img class='logo' src="img/logo.png" alt=""></a>
+        <ul class="nav-ul">
+            <li id="resource-link" class="nav-li">
+                <a class="nav-link" href="/resource">Collection</a>
+            </li>
+            <li class="nav-li">
+                <a class="nav-link" href="#about">Add Resource</a>
+            </li>
+            <li class="nav-li">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1><span> </span><span class="red"> S</span><span class="orange">a</span><span class="yellow">n</span><span
+                class="green">d</span><span class="blue">b</span><span class="dark-blue">o</span><span
+                class="purple">x</span>'s Collection</h1>
+        <h3></h3>
+    </header>
+    <main>
+        <ul>
+            <% for(let i=0; i < resource.length; i++){ %>
+                <li class="re-li">
+                    <h3>
+                        <%= resource[i].name %>
+                    </h3>
+                    <img src="<%= resource[i].img %> " alt="picture of <%= resource[i].name %> ">
+                    <h4>
+                        <%= resource[i].subject %>
+                    </h4>
+
+                </li>
+                <% } %>
+        </ul>
+
+    </main>
+
 
 </body>
 
