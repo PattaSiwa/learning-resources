@@ -172,20 +172,18 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    html {
+    :root {
       font-size: 10px;
     }
     .about {
         width: 100%;
         
     }
-    
+  
   }
 
   @media screen and (max-width: 500px) {
-      body{
-          font-size: 6px;
-      }
+     
       header {
           background-size: scale-down;
       }
