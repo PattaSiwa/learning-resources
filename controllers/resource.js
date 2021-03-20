@@ -51,7 +51,7 @@ router.get('/seed', (req, res) => {
             url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
             description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
             subject: "Math",
-            img: "uploads/images/snakesladders.png"
+            img: "/uploads/images/snakesladders.png"
 
         },
         {
@@ -59,7 +59,7 @@ router.get('/seed', (req, res) => {
             url: 'https://matchthememory.com/',
             description: "Memory game where you match cards to help improve your memory",
             subject: "Games",
-            img: "uploads/images/memory.png"
+            img: "/uploads/images/memory.png"
 
         },
         {
@@ -67,7 +67,7 @@ router.get('/seed', (req, res) => {
             url: 'http://en.battleship-game.org/id22892859/classic',
             description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
             subject: "Games",
-            img: "uploads/images/battleship.png"
+            img: "/uploads/images/battleship.png"
 
         },
     ], (err, data) => {

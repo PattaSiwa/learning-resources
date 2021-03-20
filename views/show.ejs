@@ -5,8 +5,28 @@
 
     <body>
         <%- include('./partials/navbar.ejs') %>
-            <h1>this is the show page for <%= resource.name %>
-            </h1>
+            <main>
+                <h1>
+                    <%= resource.name %>
+                </h1>
+                <div class="content">
+                    <div class="half left">
+                        <img class='re-img' src="<%= resource.img %> " alt="game image of <%= resource.name %> ">
+                    </div>
+                    <div class="half right">
+                        <p><strong>Description: </strong>
+                            <%= resource.description %>
+                        </p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a href="<%= resource.url %> " target="_blank"><button id='go-btn'>Go to Resource!</button></a>
+                    <a href="<%= resource.url %> "><button id='edit-btn'>Edit</button></a>
+                    <a href="<%= resource.url %> "><button id='delete-btn'>Delete</button></a>
+                </div>
+
+            </main>
+
             <%- include('./partials/footer.ejs') %>
     </body>
 
