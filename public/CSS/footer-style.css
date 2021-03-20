@@ -66,11 +66,12 @@ footer {
     }
     .contacts{
         margin:auto;
+        text-align: center;
         
     }
 
     .social-ul {
-        margin:1rem;
-        justify-content: start;
+     padding:0;
+       
     }
 }

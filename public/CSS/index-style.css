@@ -59,9 +59,13 @@ main {
 .re-li {
     
     margin: 2rem auto;
+    min-width: 30%;
 }
 
-
+.card {
+    min-width: 200px;
+    
+}
 
 .Math {
     color: var(--red-orange)

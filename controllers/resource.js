@@ -25,13 +25,17 @@ const Resource = require('../models/resource')
 
 //index route 
 router.get('/', (req, res) => {
-    Resource.find({}, (err, foundResource, next) => {
+    Resource.find({}, (err, foundResources, next) => {
         if (err) { //null is the query was ok
             console.log(err)
             next(err)
         } else {
+            const sortedResources = foundResources.sort((a, b) => {
+                return (a.subject > b.subject) ? 1 : -1
+            })
+            console.log(sortedResources)
             res.render('index.ejs', {
-                resource: foundResource
+                resource: sortedResources
             })
         }
     })

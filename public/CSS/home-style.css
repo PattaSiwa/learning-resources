@@ -67,23 +67,19 @@ span{
     border: none;
     width: 30rem;
     height: 5rem;
+    font-size: 2.5rem;
     border-radius: 10px;
     transition: .3s;
+    padding-top: 5px;
+    font-family: 'Englebert', sans-serif;
 }
 
 .get-started-btn:hover {
     cursor: pointer;
+    color: var(--red-orange);
 }
 
-.get-started-link {
-    position: relative;
-    text-decoration: none;
-    font-family: 'Englebert', sans-serif;
-    font-size: 3rem;
-    color: black;
-    top: .5rem;
-    transition: .3s;
-}
+
 
 .get-started-btn:hover{
     
@@ -113,15 +109,19 @@ main {
 .about-header{
     text-align: center;
     margin-top: 2em;
-    font-size: 3.5em;
+    font-size: 3.5rem;
 }
 .about-text{
     width: 80%;
-    font-size: 1.5em;
+    font-size: 2rem;
     margin: 4rem auto;
     
 }
-
+@media screen and (max-width: 1000px) {
+    :root {
+        font-size: 1.1vw;
+    }
+      }
 
 @media screen and (max-width: 800px) {
     :root {
@@ -139,6 +139,15 @@ main {
       header {
           background-size: scale-down;
       }
+
+      .title {
+          font-size: 6rem;
+      }
+      .sub-title {
+          font-size: 2.5rem;
+          line-height: 3rem;
+      }
     
 
   }
+
