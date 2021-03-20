@@ -10,7 +10,7 @@
 
                     <div class="sidebar"></div>
 
-                    <div class="registration">
+                    <div class="form-container">
                         <h1>ADD A RESOURCE</h1>
 
                         <form action="/register" method="POST">
@@ -26,13 +26,16 @@
                                     <option value="Games">Games</option>
                                     <option value="Science">Science</option>
                                     <option value="Job Readiness">Job Readiness</option>
+                                    <option value="Job Readiness">Other</option>
                                 </select>
 
                                 <label for="name">NAME</label>
-                                <input id="name" name="name" type="text" placeholder="Name of the resource" />
+                                <input class="text-input" id="name" name="name" type="text"
+                                    placeholder="Name of the resource" />
 
                                 <label for="url">URL</label>
-                                <input id="url" name="url" type="text" placeholder="Link to the resource">
+                                <input class="text-input" id="url" name="url" type="text"
+                                    placeholder="Link to the resource">
 
 
                                 <label for="biography">DESCRIPTION</label>
@@ -40,7 +43,8 @@
                                 <textarea id="biography" name="description"
                                     placeholder="Add a little description for this resource!"></textarea>
                                 <label for="img">IMAGE LINK</label>
-                                <input id="img" name="img" type="text" placeholder="Link to the image">
+                                <input class="text-input" id="img" name="img" type="text"
+                                    placeholder="Link to the image">
                             </fieldset>
 
 

@@ -1,5 +1,5 @@
 :root {
-    font-size: .7vw;
+    font-size: 12px;
     --light-blue: #91D7F2;
     --dark-blue: #5196A6;
     --white-beige: #F2F0EB;
@@ -36,20 +36,21 @@ main {
     background-repeat: no-repeat;
     border-radius: 10px 0 0 10px;
   }
-  .registration {
+  .form-container {
     width: 50%;
     background: var(--white-beige);
     border-radius: 0 10px 10px 0;
     padding: 15px;
     box-sizing: border-box;
     overflow: auto;
+    transition: .3s;
   }
   
 
   h1 {
-    
-    font-size: 3rem;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
     color: var(--red-orange);
     border-bottom: 2px solid var(--dark-blue);
   }
@@ -130,3 +131,37 @@ main {
     outline: 0;
     border: 1px solid var(--dark-blue);
   }
+
+  select {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-input::-webkit-input-placeholder { 
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .text-input:-moz-placeholder { 
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  @media screen and (max-width: 1000px) {
+   
+    .sidebar {
+       display: none;
+    }
+    .form-container {
+        width: 100%;
+        border-radius: 0;
+    }
+  
+  }
+  
+  @media screen and (max-width: 1000px) {
+   
+    .container{
+        margin: 0;
+        width:100%;
+    }
+  
+  }
+  
