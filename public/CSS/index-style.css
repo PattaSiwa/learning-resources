@@ -69,6 +69,13 @@ main {
     background-color: var(--white-beige);
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.46); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.46);
+    transition: .4s;
+}
+
+.re-li:hover {
+    -webkit-box-shadow: 5px 5px 15px 5px var(--dark-blue); 
+    box-shadow: 5px 5px 15px 5px var(--dark-blue);
+    background-color: rgb(229, 202, 182);
 }
 
 .card {
@@ -85,8 +92,7 @@ main {
 
 .learn-more {
     position: absolute;
-    bottom: 10px;
-    
+    bottom: 20px;
 }
 
 .learn-more button {
@@ -118,6 +124,11 @@ main {
     line-height: 3rem;
 }
 
+.card-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width: 1000px) {
     :root {
       font-size: 1vw;
@@ -130,7 +141,9 @@ main {
     :root {
       font-size: 1.75vw;
     }
-   
+    .re-ul{
+        justify-content: center;
+    }
   
   }
 
@@ -146,5 +159,8 @@ main {
         padding-bottom: 2rem;
     }
    
+    .re-ul{
+        justify-content: center;
+    }
   
   }

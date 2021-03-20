@@ -78,4 +78,12 @@ router.get('/seed', (req, res) => {
     })
 })
 
+
+//show route
+router.get('/:index', (req, res) => {
+    Resource.findById(req.params.index, (err, foundResource) => {
+        res.render('show.ejs', { resource: foundResource })
+    })
+})
+
 module.exports = router;

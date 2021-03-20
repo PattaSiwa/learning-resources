@@ -1,64 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/jpg" href="img/small-logo.png" />
-    <link rel="stylesheet" href="CSS/root-style.css">
-    <link rel="stylesheet" href="CSS/nav-style.css">
-    <link rel="stylesheet" href="CSS/footer-style.css">
+<%- include('./partials/header.ejs') %>
     <link rel="stylesheet" href="CSS/index-style.css">
     <title>Sandbox</title>
-</head>
+    </head>
 
-<body>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
 
-    <nav class="navbar">
-        <div class="brand-title">
-            <a href="/"> <img class='logo' src="img/logo.png" alt=""></a>
-        </div>
-        <a href="#" class="toggle-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-            <ul>
-                <li><a class="nav-link" href="/resource">Collection</a></li>
-                <li><a class="nav-link" href="#about">Add To Collection</a></li>
-                <li><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-        <h1><span> </span><span class="red"> S</span><span class="orange">a</span><span class="yellow">n</span><span
-                class="green">d</span><span class="blue">b</span><span class="dark-blue">o</span><span
-                class="purple">x</span>'s Collection</h1>
+            <header>
+                <h1><span> </span><span class="red"> S</span><span class="orange">a</span><span
+                        class="yellow">n</span><span class="green">d</span><span class="blue">b</span><span
+                        class="dark-blue">o</span><span class="purple">x</span>'s Collection</h1>
 
-    </header>
-    <main>
-        <ul class='re-ul'>
-            <% for(let i=0; i < resource.length; i++){ %>
-                <li class="re-li">
-                    <div class="card">
+            </header>
+            <main>
+                <ul class='re-ul'>
+                    <% for(let i=0; i < resource.length; i++){ %>
+                        <li class="re-li">
+                            <div class="card">
 
-                        <h5 class="card-title  <%=resource[i].subject %> ">
-                            <%= resource[i].subject %>
-                        </h5>
-                        <p class="card-text">
-                            <%= resource[i].name %>
-                        </p>
-                        <a href="/resource/<%=resource[i].id%>" class="learn-more"><button>Learn more</button></a>
+                                <h5 class="card-title  <%=resource[i].subject %> ">
+                                    <%= resource[i].subject %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= resource[i].name %>
+                                </p>
+                                <a href="/resource/<%=resource[i].id%>" class="learn-more"><button>Learn
+                                        more</button></a>
 
-                    </div>
-                </li>
+                            </div>
+                        </li>
 
 
-                <% } %>
-        </ul>
+                        <% } %>
+                </ul>
 
-    </main>
+            </main>
 
-    <%- include('./partials/footer.ejs') %>
+            <%- include('./partials/footer.ejs') %>

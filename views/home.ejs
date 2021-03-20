@@ -1,75 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/jpg" href="img/small-logo.png" />
-    <link rel="stylesheet" href="CSS/root-style.css">
-    <link rel="stylesheet" href="CSS/nav-style.css">
-    <link rel="stylesheet" href="CSS/footer-style.css">
+<%- include('./partials/header.ejs') %>
     <link rel="stylesheet" href="CSS/home-style.css">
     <title>Sandbox</title>
-</head>
+    </head>
 
-<body>
-    <div id="page-container">
-        <nav class="navbar">
-            <div class="brand-title">
-                <a href="/"> <img class='logo' src="img/logo.png" alt=""></a>
-            </div>
-            <a href="#" class="toggle-btn">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
-                <ul>
-                    <li><a class="nav-link" href="/resource">Collection</a></li>
-                    <li><a class="nav-link" href="#about">About</a></li>
-                    <li><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+    <body>
+        <div id="page-container">
+            <nav class="navbar">
+                <div class="brand-title">
+                    <a href="/"> <img class='logo' src="img/logo.png" alt=""></a>
+                </div>
+                <a href="#" class="toggle-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+                <div class="navbar-links">
+                    <ul>
+                        <li><a class="nav-link" href="/resource">Collection</a></li>
+                        <li><a class="nav-link" href="#about">About</a></li>
+                        <li><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
 
-        <header>
-            <div class="headers">
+            <header>
+                <div class="headers">
 
-                <h1 class="title"><span> </span><span class="red"> S</span><span class="orange">a</span><span
-                        class="yellow">n</span><span class="green">d</span><span class="blue">b</span><span
-                        class="dark-blue">o</span><span class="purple">x</span></h1>
-                <h3 class="sub-title">A Collection of Learning Resources </h3>
+                    <h1 class="title"><span> </span><span class="red"> S</span><span class="orange">a</span><span
+                            class="yellow">n</span><span class="green">d</span><span class="blue">b</span><span
+                            class="dark-blue">o</span><span class="purple">x</span></h1>
+                    <h3 class="sub-title">A Collection of Learning Resources </h3>
 
-                <a class="get-started-link" href="/resource"> <button class="get-started-btn">View
-                        Collection</button></a>
+                    <a class="get-started-link" href="/resource"> <button class="get-started-btn">View
+                            Collection</button></a>
 
-            </div>
+                </div>
 
-        </header>
+            </header>
 
-        <main id="about">
-            <section class="about">
-                <h3 class="about-header">About this Project</h3>
-                <p class="about-text">
-                    My name is Pattarapon. I have been working as a Youth Support Specialist and one of the
-                    biggest challenges we had during the Covid-19 Pandemic was finding appropriate resources to support
-                    our
-                    students for remote learning. Most of the resources we had were links and e-mails of links my
-                    colleagues
-                    and I have sent to
-                    each other. This application will provide a centralized place for those resources.
-                </p>
-                <p class="about-text">
-                    <strong>
-                        My hope for this project
-                        is to help educators and parents by providing a space they could come to find and share learning
-                        resources.
-                    </strong>
-                </p>
-            </section>
-        </main>
+            <main id="about">
+                <section class="about">
+                    <h3 class="about-header">About this Project</h3>
+                    <p class="about-text">
+                        My name is Pattarapon. I have been working as a Youth Support Specialist and one of the
+                        biggest challenges we had during the Covid-19 Pandemic was finding appropriate resources to
+                        support
+                        our
+                        students for remote learning. Most of the resources we had were links and e-mails of links my
+                        colleagues
+                        and I have sent to
+                        each other. This application will provide a centralized place for those resources.
+                    </p>
+                    <p class="about-text">
+                        <strong>
+                            My hope for this project
+                            is to help educators and parents by providing a space they could come to find and share
+                            learning
+                            resources.
+                        </strong>
+                    </p>
+                </section>
+            </main>
 
 
 
-        <%- include('./partials/footer.ejs') %>
+            <%- include('./partials/footer.ejs') %>
