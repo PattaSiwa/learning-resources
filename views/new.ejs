@@ -1,0 +1,55 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/new-style.css">
+    <title>Sandbox</title>
+    </head>
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+            <main>
+                <div class="container">
+
+                    <div class="sidebar"></div>
+
+                    <div class="registration">
+                        <h1>ADD A RESOURCE</h1>
+
+                        <form action="/register" method="POST">
+
+                            <fieldset class="account-info">
+
+                                <legend>Resource Information</legend>
+
+                                <label for="subject">SUBJECT</label>
+                                <select name="subject" id="subject">
+                                    <option value="Math">Math</option>
+                                    <option value="Language">Language</option>
+                                    <option value="Games">Games</option>
+                                    <option value="Science">Science</option>
+                                    <option value="Job Readiness">Job Readiness</option>
+                                </select>
+
+                                <label for="name">NAME</label>
+                                <input id="name" name="name" type="text" placeholder="Name of the resource" />
+
+                                <label for="url">URL</label>
+                                <input id="url" name="url" type="text" placeholder="Link to the resource">
+
+
+                                <label for="biography">DESCRIPTION</label>
+
+                                <textarea id="biography" name="description"
+                                    placeholder="Add a little description for this resource!"></textarea>
+                                <label for="img">IMAGE LINK</label>
+                                <input id="img" name="img" type="text" placeholder="Link to the image">
+                            </fieldset>
+
+
+                            <input type="submit" value="ADD TO COLLECTION">
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
+    </html>

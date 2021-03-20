@@ -1,0 +1,132 @@
+:root {
+    font-size: .7vw;
+    --light-blue: #91D7F2;
+    --dark-blue: #5196A6;
+    --white-beige: #F2F0EB;
+    --orange: #F2955E;
+    --red-orange: #F25041;
+    transition: .3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+main {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINERS */
+.container {
+    width: 80vw;
+    height: 80vh;
+    margin: 50px auto;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px var(--purple),
+                -1px -1px 10px var(--purple),
+                1px -1px 10px var(--purple),
+                -1px 1px 10px var(--purple);
+  }
+  .sidebar {
+    width: 50%;
+    background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=841&q=80');
+    
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+  }
+  .registration {
+    width: 50%;
+    background: var(--white-beige);
+    border-radius: 0 10px 10px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+
+  h1 {
+    
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--red-orange);
+    border-bottom: 2px solid var(--dark-blue);
+  }
+  
+  /* FORMS */
+  
+  fieldset {
+    border: 1px solid var(--dark-blue);
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  legend{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--red-orange);
+  }
+  
+  label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: var(--red-orange);
+    display: block;
+    font-size: 1.3rem;
+  }
+  
+  input ,select{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--dark-blue);
+  }
+  
+  input:focus, select:focus {
+    outline: 0;
+    border: 1px solid var(--dark-blue);
+  }
+  
+  input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    background: var(--orange);
+    box-shadow: 2px 2px var(--light-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white-beige);
+    border: 0px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  input[type="submit"]:hover {
+    cursor: pointer;
+    background: var(--light-blue);
+    box-shadow: 2px 2px rgb(233, 149, 40);
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 75px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: rgb(68, 67, 67);
+    border: 1px solid var(--dark-blue);
+  }
+  
+  textarea::-webkit-input-placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  
+  textarea:focus {
+    outline: 0;
+    border: 1px solid var(--dark-blue);
+  }

@@ -78,6 +78,11 @@ router.get('/seed', (req, res) => {
     })
 })
 
+// new route
+router.get('/new', (req, res) => {
+    res.render('new.ejs')
+})
+
 
 //show route
 router.get('/:index', (req, res) => {

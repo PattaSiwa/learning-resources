@@ -9,13 +9,13 @@
 
 
 main{
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 5rem;
-    padding-top: 5rem;
+    padding-top: 1rem;
 }
 
 h1{
@@ -72,9 +72,7 @@ button{
     transition: .3s;
 }
 
-button:focus{
-    border: none;
-}
+
 
 button:hover {
     cursor: pointer;
@@ -100,7 +98,7 @@ button:hover {
 }
 
 #go-btn {
-    background-color: yellowgreen;
+    background-color: rgb(88, 202, 202);
 }
 
 @media screen and (max-width: 1000px) {
@@ -131,6 +129,7 @@ button:hover {
       font-size: 10px;
     }
     h1{
+        padding-top: 3rem;
         font-size: 3rem;
     }
     .content {
