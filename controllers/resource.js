@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const router = express.Router();
 const Resource = require('../models/resource')
@@ -81,6 +82,18 @@ router.get('/seed', (req, res) => {
 // new route
 router.get('/new', (req, res) => {
     res.render('new.ejs')
+})
+
+// post route "create"
+
+router.post('/', (req, res) => {
+    Resource.create(req.body, (err, createdResource) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect('/resource')
+        }
+    })
 })
 
 
