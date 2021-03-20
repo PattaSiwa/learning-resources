@@ -87,10 +87,30 @@ router.get('/new', (req, res) => {
 // post route "create"
 
 router.post('/', (req, res) => {
-    Resource.create(req.body, (err, createdResource) => {
+    const newResource = req.body
+    console.log(req.body.url)
+    if (newResource.img === '') {
+        if (newResource.subject === "Games")
+            newResource.img = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1009&q=80"
+    }
+
+    Resource.create(newResource, (err, createdResource) => {
         if (err) {
             res.send(err)
         } else {
+            res.redirect('/resource')
+        }
+    })
+})
+
+// set up Destroy route
+router.delete('/:index', (req, res) => {
+    Resource.findByIdAndRemove(req.params.index, (err, data) => {
+        if (err) {
+            console.log(err)
+        } else {
+            // redirect to the index so the user can see that the fruit got deleted
+            // console.log(data)
             res.redirect('/resource')
         }
     })

@@ -22,7 +22,10 @@
                 <div class="buttons">
                     <a href="<%= resource.url %> " target="_blank"><button id='go-btn'>Go to Resource!</button></a>
                     <a href="#"><button id='edit-btn'>Edit</button></a>
-                    <a href="#"><button id='delete-btn'>Delete</button></a>
+                    <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
+                        <button id='delete-btn'>Delete</button>
+                    </form>
+
                 </div>
 
             </main>

@@ -91,6 +91,7 @@ main {
 .learn-more {
     position: absolute;
     bottom: 20px;
+    padding-left: 25px;
 }
 
 .learn-more button {
@@ -116,11 +117,22 @@ main {
     color: var(--dark-blue)
 }
 
+.Language {
+    color: rgb(78, 182, 78)
+}
+
+.Job-Readiness {
+    color: var(--orange)
+}
+
 .card-title, .card-text, .btn {
     font-size: 2rem;
     transition: .3s;
     line-height: 3rem;
+    text-align: center;
 }
+
+
 
 .card-text{
     font-family: 'Montserrat', sans-serif;
