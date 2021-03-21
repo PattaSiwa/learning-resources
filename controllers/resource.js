@@ -90,8 +90,7 @@ router.post('/', (req, res) => {
     const newResource = req.body
     console.log(req.body.url)
     if (newResource.img === '') {
-        if (newResource.subject === "Games")
-            newResource.img = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1009&q=80"
+        newResource.img = "https://images.unsplash.com/photo-1612385763901-68857dd4c43c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
     }
 
     Resource.create(newResource, (err, createdResource) => {
@@ -103,7 +102,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// set up Destroy route
+// Delete route
 router.delete('/:index', (req, res) => {
     Resource.findByIdAndRemove(req.params.index, (err, data) => {
         if (err) {
@@ -113,6 +112,17 @@ router.delete('/:index', (req, res) => {
             // console.log(data)
             res.redirect('/resource')
         }
+    })
+})
+
+// EDIT route
+router.get('/:index/edit', (req, res) => {
+    Resource.findById(req.params.index, (err, foundResource) => {
+        res.render('edit.ejs', {
+            resource: foundResource,
+            // currentUser: req.session.currentUser
+        })
+
     })
 })
 

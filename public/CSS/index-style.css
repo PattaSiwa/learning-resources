@@ -66,32 +66,45 @@ main {
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.46); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.46);
     transition: .5s;
+    overflow: hidden;
 }
 
 .re-li:hover {
     -webkit-box-shadow: 5px 5px 15px 5px var(--dark-blue); 
     box-shadow: 5px 5px 15px 5px var(--dark-blue);
-    background: rgb(247, 243, 232);
-    background: -webkit-radial-gradient(bottom left, rgba(245, 240, 224, 0.5), rgba(255, 93, 91, .5));
-    background: -moz-radial-gradient(bottom left, rgba(214, 212, 204, 0.5), rgba(255, 93, 91, .5));
-    background: radial-gradient(to top right, rgba(241, 240, 233, 0.5), rgba(255, 93, 91, .5));
+    -webkit-animation: wobble .4s;
 }
+
+ @-webkit-keyframes wobble {
+        0%,
+        100% {
+            -webkit-transform: rotate(-2deg);
+        }
+        75% {
+            -webkit-transform: rotate(2deg);
+        }
+        50% {
+            -webkit-transform: rotate(-2deg);
+        }
+        25% {
+            -webkit-transform: rotate(2deg);
+        }
+    }
 
 .card {
     width: 100%;
     height: 100%;
-    padding: 2rem;
-    padding-bottom: 15rem;
     position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: stretch;
+    text-align: center;
 }
 
-.learn-more {
-    position: absolute;
-    bottom: 20px;
-    padding-left: 25px;
+.learn-more{
+    padding-bottom: .5rem;
 }
 
 .learn-more button {
@@ -111,18 +124,29 @@ main {
 
 
 .Math {
-    color: var(--red-orange)
+    background-color: var(--red-orange)
 }
 .Games {
-    color: var(--dark-blue)
+    background-color: var(--dark-blue)
 }
 
 .Language {
-    color: rgb(78, 182, 78)
+    background-color: rgb(78, 182, 78)
 }
 
 .Job-Readiness {
-    color: var(--orange)
+background-color: var(--orange)
+}
+
+.Science {
+    background-color: rgb(163, 4, 163)
+}
+
+.Independent-Living {
+    background-color:rgb(217, 236, 47)
+}
+.Other {
+    background-color: rgb(94, 62, 44)
 }
 
 .card-title, .card-text, .btn {
@@ -132,6 +156,10 @@ main {
     text-align: center;
 }
 
+.card-title{
+    padding: 1.5rem ;
+    color: var(--white-beige);
+}
 
 
 .card-text{

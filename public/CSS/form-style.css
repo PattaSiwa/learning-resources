@@ -36,6 +36,15 @@ main {
     background-repeat: no-repeat;
     border-radius: 10px 0 0 10px;
   }
+  .sidebar-edit {
+    
+    background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+   
+  }
+
   .form-container {
     width: 50%;
     background: var(--white-beige);
@@ -142,6 +151,10 @@ main {
   
   .text-input:-moz-placeholder { 
     font-family: 'Montserrat', sans-serif;
+  }
+
+  span {
+    color: var(--dark-blue)
   }
 
   @media screen and (max-width: 1000px) {
