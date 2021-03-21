@@ -30,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
 //controllers
+
+//resource routes
 const resourceController = require('./controllers/resource')
 app.use('/resource', resourceController)
 

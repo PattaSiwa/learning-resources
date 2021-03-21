@@ -88,7 +88,7 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
     const newResource = req.body
-    console.log(req.body.url)
+
     if (newResource.img === '') {
         newResource.img = "https://images.unsplash.com/photo-1612385763901-68857dd4c43c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
     }
@@ -123,6 +123,13 @@ router.get('/:index/edit', (req, res) => {
             // currentUser: req.session.currentUser
         })
 
+    })
+})
+
+//UPDATE route 
+router.put('/:index', (req, res) => {
+    Resource.findByIdAndUpdate(req.params.index, req.body, { new: true }, (err, updatedResource) => {
+        res.redirect('/resource')
     })
 })
 

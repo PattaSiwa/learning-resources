@@ -8,7 +8,9 @@
             <main>
                 <div class="container">
 
-                    <div class="sidebar sidebar-edit"></div>
+                    <div class="sidebar sidebar-edit">
+                        <img src="<%= resource.img %> " alt="">
+                    </div>
 
                     <div class="form-container">
                         <a href="/resource/<%= resource.id %> "><button class='back-btn'>Back</button></a>
@@ -17,7 +19,7 @@
                             </span>
                         </h1>
 
-                        <form action="/resource/<%= resource.id %>?_method=PUT" method="POST">
+                        <form method="POST" action="/resource/<%= resource.id %>?_method=PUT">
 
                             <fieldset>
 
