@@ -157,6 +157,27 @@ main {
     color: var(--dark-blue)
   }
 
+  .back-btn {
+    position: relative;
+    float: right;
+    border: none;
+    background: var(--orange);
+    box-shadow: 2px 2px var(--light-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white-beige);
+    border: 0px;
+    transition: 0.2s ease-in-out;
+  }
+
+  .back-btn:hover {
+    cursor: pointer;
+    background: var(--light-blue);
+    box-shadow: 2px 2px rgb(233, 149, 40);
+  }
+
+
   @media screen and (max-width: 1000px) {
    
     .sidebar {
