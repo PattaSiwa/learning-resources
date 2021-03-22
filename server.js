@@ -6,7 +6,7 @@ const PORT = process.env.PORT
 const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
-const User = require('./models/user')
+const User = require('./models/users')
 
 
 //database
@@ -59,6 +59,16 @@ passport.deserializeUser(User.deserializeUser())
 //resource routes
 const resourceController = require('./controllers/resource')
 app.use('/resource', resourceController)
+
+// Users routes
+const usersController = require('./controllers/users')
+app.use('/', usersController)
+
+app.get('/fakeUser', async (req, res) => {
+    const user = new User({ email: 'bxx@gmail.com', username: "bxx" })
+    const newUser = await User.register(user, "monkey")
+    res.send(newUser)
+})
 
 // home page
 app.get('/', (req, res) => {

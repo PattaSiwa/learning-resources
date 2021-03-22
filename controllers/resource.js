@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 const router = express.Router();
 const Resource = require('../models/resource')
@@ -35,7 +34,7 @@ router.get('/', (req, res) => {
                 return (a.subject > b.subject) ? 1 : -1
             })
             console.log(sortedResources)
-            res.render('index.ejs', {
+            res.render('resource/index.ejs', {
                 resource: sortedResources
             })
         }
@@ -81,7 +80,7 @@ router.get('/seed', (req, res) => {
 
 // new route
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('resource/new.ejs')
 })
 
 // post route "create"
@@ -118,7 +117,7 @@ router.delete('/:index', (req, res) => {
 // EDIT route
 router.get('/:index/edit', (req, res) => {
     Resource.findById(req.params.index, (err, foundResource) => {
-        res.render('edit.ejs', {
+        res.render('resource/edit.ejs', {
             resource: foundResource,
             // currentUser: req.session.currentUser
         })
@@ -137,7 +136,7 @@ router.put('/:index', (req, res) => {
 //show route
 router.get('/:index', (req, res) => {
     Resource.findById(req.params.index, (err, foundResource) => {
-        res.render('show.ejs', { resource: foundResource })
+        res.render('resource/show.ejs', { resource: foundResource })
     })
 })
 
