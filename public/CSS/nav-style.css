@@ -34,9 +34,10 @@
     text-decoration: none;
     color: var(--dark-blue);
     font-size: 1.7rem;
+    font-weight: 600;
     padding: 1.7rem;
     display: block;
-    rgba(245, 220, 151, 0.85);
+   
     font-family: 'Montserrat', sans-serif;
     
 }
