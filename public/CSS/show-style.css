@@ -91,6 +91,18 @@ button:hover {
    
 }
 
+.error {
+    line-height: 5rem;
+    width: 60%;
+}
+
+.error-pic {
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 #delete-btn {
     background-color: var(--red-orange);
    

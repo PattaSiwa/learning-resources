@@ -2,6 +2,9 @@
     <div class="brand-title">
         <a href="/"> <img class='logo' src="/img/logo.png" alt=""></a>
     </div>
+    <div>
+
+    </div>
     <a href="#" class="toggle-btn">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -10,8 +13,14 @@
     <div class="navbar-links">
         <ul>
             <li><a class="nav-link" href="/resource">Collection</a></li>
-            <li><a class="nav-link" href="/resource/new">Add To Collection</a></li>
+            <li><a class="nav-link" href="/resource/new">Add</a></li>
             <li><a class="nav-link" href="#contact">Contact</a></li>
+            <% if(!user) { %>
+                <li><a class="nav-link " href="/users/register">Register</a></li>
+                <li><a class="nav-link register-link" href="/users/login">Login</a></li>
+                <% } else { %>
+                    <li><a class="nav-link register-link" href="/users/logout">Logout</a></li>
+                    <% } %>
         </ul>
     </div>
 </nav>

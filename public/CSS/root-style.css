@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Englebert&family=Montserrat:wght@300&display=swap');
 
 :root {
-    font-size: .7vw;
+    font-size: 12px;
     --light-blue: #91D7F2;
     --dark-blue: #5196A6;
     --white-beige: #F2F0EB;
@@ -54,17 +54,15 @@ button:focus{
 
 @media screen and (max-width: 800px) {
   :root {
-    font-size: 1.75vw;
+    font-size: 14px;
   }
-  
 
 }
 
 
 @media screen and (max-width: 500px) {
   :root {
-    font-size: 10px;
+    font-size: 12px;
   }
-
 
 }

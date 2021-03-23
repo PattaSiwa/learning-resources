@@ -17,6 +17,11 @@ header {
 span{
     letter-spacing: 5px;
 }
+
+p {
+    line-height: 3rem;
+}
+
 .title, .sub-title {
     color: rgb(155, 155, 155);
     text-shadow: 4px 2px 0px rgb(214, 214, 214);

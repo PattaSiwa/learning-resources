@@ -13,26 +13,27 @@
 
             </header>
             <main>
-                <ul class='re-ul'>
-                    <% for(let i=0; i < resource.length; i++){ %>
-                        <li class="re-li">
-                            <div class="card">
+                <%- include('../partials/flash.ejs') %>
+                    <ul class='re-ul'>
+                        <% for(let i=0; i < resource.length; i++){ %>
+                            <li class="re-li">
+                                <div class="card">
 
-                                <h5 class="card-title  <%=resource[i].subject %> ">
-                                    <%= resource[i].subject %>
-                                </h5>
-                                <p class="card-text">
-                                    <%= resource[i].name %>
-                                </p>
-                                <a href="/resource/<%=resource[i].id%>" class="learn-more"><button>Learn
-                                        more</button></a>
+                                    <h5 class="card-title  <%=resource[i].subject %> ">
+                                        <%= resource[i].subject %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= resource[i].name %>
+                                    </p>
+                                    <a href="/resource/<%=resource[i].id%>" class="learn-more"><button>Learn
+                                            more</button></a>
 
-                            </div>
-                        </li>
+                                </div>
+                            </li>
 
 
-                        <% } %>
-                </ul>
+                            <% } %>
+                    </ul>
 
             </main>
 

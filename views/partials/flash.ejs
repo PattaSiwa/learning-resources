@@ -1,0 +1,11 @@
+<% if(success && success.length) { %>
+    <h3 class="flash-message sucess-message">
+        <%= success %>
+    </h3>
+    <% } %>
+
+        <% if(error && error.length) { %>
+            <h3 class="flash-message error-message">
+                <%= error %>
+            </h3>
+            <% } %>

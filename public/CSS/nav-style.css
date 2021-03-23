@@ -37,14 +37,37 @@
     font-weight: 600;
     padding: 1.7rem;
     display: block;
-   
     font-family: 'Montserrat', sans-serif;
+    
+}
+
+.register-link {
+    background-color: var(--light-blue);
+}
+
+.register-link:hover {
+    background-color: var(--orange);
     
 }
 
 .navbar-links li:hover{
     background-color: var(--orange);
     
+}
+
+.flash-message {
+   
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2rem 0;
+}
+.sucess-message {
+    color: var(--dark-blue);
+}
+.error-message {
+    color: var(--red-orange);
 }
 
 .toggle-btn {
@@ -73,6 +96,14 @@
     object-fit: scale-down;
 }
 
+@media screen and (max-width: 1000px) {
+    .navbar-links li a {
+        font-size: 1.4rem;
+        padding: 1.8rem
+    }
+   
+}
+
 @media (max-width: 600px){
     .toggle-btn {
         display: flex;
@@ -97,6 +128,7 @@
 
     .navbar-links li a {
         padding: .5rem 1rem;
+        font-size: 1.2rem;
     }
 
     .navbar-links.active{

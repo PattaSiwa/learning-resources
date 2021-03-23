@@ -4,12 +4,12 @@ require('dotenv').config()
 const methodOverride = require('method-override')
 const path = require('path')
 const PORT = process.env.PORT
-const ejsMate = require('ejs-mate')
 const session = require('express-session')
+const flash = require('connect-flash')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/users')
-const ExpressError = require('./untilities/ExpressError')
+const ExpressError = require('./utilities/ExpressError')
 
 
 //database
@@ -31,18 +31,18 @@ db.once('open', () => {
 
 //session config
 const sessionConfig = {
-    secret: "secretsecrethehe",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    cooke: {
+    cookie: {
         httpOnly: true,
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 3, //milisecends, seconds,mins,hours
+        maxAge: 1000 * 60 * 60 * 24 * 3  // 3 day limit same as above
     }
 }
 
 //ejs
-app.engine('ejs', ejsMate)
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
@@ -52,6 +52,16 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(session(sessionConfig))
+app.use(flash())
+
+//flash
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    res.locals.success = req.flash('success')
+    res.locals.error = req.flash('error')
+    next()
+})
 
 //authentication
 app.use(passport.initialize())
@@ -70,7 +80,7 @@ app.use('/resource', resourceController)
 
 // Users routes
 const usersController = require('./controllers/users')
-app.use('/', usersController)
+app.use('/users', usersController)
 
 // home page
 app.get('/', (req, res) => {
@@ -80,23 +90,25 @@ app.get('/', (req, res) => {
 
 //error handling
 
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found', 404))
+})
+
 app.get('/error', (req, res) => {
     chicken.fly()
 })
 
 
 app.use((err, req, res, next) => {
-    const { status = 500, message } = err
-    res.render('error.ejs', {
-        error: status,
-        message: message
-    })
-    next(err)
+    const { statusCode = 500 } = err;
+    if (!err.message) {
+        err.message = "Somethign went wrong"
+    }
+    res.status(statusCode).render('error', { err })
+
 })
 
-app.use((req, res) => {
-    res.status(404).render('notfound.ejs')
-})
+
 
 app.listen(PORT, () => {
     console.log('Listening on ', PORT)

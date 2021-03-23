@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
     <link rel="stylesheet" href="/CSS/form-style.css">
-    <title>Register</title>
+    <title>Login</title>
     </head>
 
     <body>
@@ -12,21 +12,16 @@
 
                 <div class="container">
 
-                    <div class="sidebar sidebar-register"></div>
+                    <div class="sidebar sidebar-login"></div>
 
                     <div class="form-container">
-                        <h1>REGISTER</h1>
+                        <h1>Login</h1>
 
-                        <form action="/users/register" method="POST">
+                        <form action="/users/login" method="POST">
 
                             <fieldset>
 
                                 <legend>Enter Your Information</legend>
-
-
-                                <label for="email">EMAIL</label>
-                                <input class="text-input" id="email" name="email" type="email"
-                                    placeholder="Enter E-mail" required />
 
                                 <label for="username">USERNAME</label>
                                 <input class="text-input" id="username" name="username" type="text"
@@ -39,8 +34,13 @@
                             </fieldset>
 
 
-                            <input type="submit" value="CREATE AN ACCOUNT">
+                            <input type="submit" value="LOGIN">
+
                         </form>
+                        <a class='register-container' href="/users/register">
+                            <p class='register-btn'>REGISTER</p>
+                        </a>
+
                     </div>
                 </div>
             </main>

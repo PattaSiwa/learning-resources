@@ -143,7 +143,8 @@ background-color: var(--orange)
 }
 
 .Independent-Living {
-    background-color:rgb(188, 190, 49)
+    background-color: var(--light-blue);
+    
 }
 .Other {
     background-color: rgb(94, 62, 44)
@@ -162,6 +163,7 @@ background-color: var(--orange)
 }
 
 
+
 .card-text{
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
@@ -177,7 +179,7 @@ background-color: var(--orange)
 
   @media screen and (max-width: 700px) {
     :root {
-      font-size: 10px;
+      font-size: 12px;
     }
     .re-ul{
         justify-content: center;
