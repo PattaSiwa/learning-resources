@@ -21,13 +21,11 @@
 
                                 <label for="subject">SUBJECT</label>
                                 <select name="subject" id="subject">
-                                    <option value="Math">Math</option>
-                                    <option value="Language">Language</option>
-                                    <option value="Games">Games</option>
-                                    <option value="Science">Science</option>
-                                    <option value="Job-Readiness">Job Readiness</option>
-                                    <option value="Independent-Living">Independent Living</option>
-                                    <option value="Other">Other</option>
+                                    <% for(let subject of subjects) { %>
+                                        <option value="<%= subject %> ">
+                                            <%= subject %>
+                                        </option>
+                                        <% } %>
                                 </select>
 
                                 <label for="name">NAME</label>

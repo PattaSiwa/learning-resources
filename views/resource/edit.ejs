@@ -27,65 +27,11 @@
 
                                 <label for="subject">SUBJECT</label>
                                 <select name="subject" id="subject">
-                                    <% if(resource.subject==="Math" ) { %>
-                                        <option value="Math" selected>Math</option>
-                                        <option value="Language">Language</option>
-                                        <option value="Games">Games</option>
-                                        <option value="Science">Science</option>
-                                        <option value="Job-Readiness">Job Readiness</option>
-                                        <option value="Independent-Living">Independent Living</option>
-                                        <option value="Other">Other</option>
-                                        <% } else if(resource.subject==="Language" ) {%>
-                                            <option value="Math">Math</option>
-                                            <option value="Language" selected>Language</option>
-                                            <option value="Games">Games</option>
-                                            <option value="Science">Science</option>
-                                            <option value="Job-Readiness">Job Readiness</option>
-                                            <option value="Independent-Living">Independent Living</option>
-                                            <option value="Other">Other</option>
-                                            <% } else if(resource.subject==="Games" ) { %>
-                                                <option value="Math">Math</option>
-                                                <option value="Language">Language</option>
-                                                <option value="Games" selected>Games</option>
-                                                <option value="Science">Science</option>
-                                                <option value="Job-Readiness">Job Readiness</option>
-                                                <option value="Independent-Living">Independent Living</option>
-                                                <option value="Other">Other</option>
-                                                <% } else if(resource.subject==="Science" ) { %>
-                                                    <option value="Math">Math</option>
-                                                    <option value="Language">Language</option>
-                                                    <option value="Games">Games</option>
-                                                    <option value="Science" selected>Science</option>
-                                                    <option value="Job-Readiness">Job Readiness</option>
-                                                    <option value="Independent-Living">Independent Living</option>
-                                                    <option value="Other">Other</option>
-                                                    <% } else if(resource.subject==="Job-Readiness" ) { %>
-                                                        <option value="Math">Math</option>
-                                                        <option value="Language">Language</option>
-                                                        <option value="Games">Games</option>
-                                                        <option value="Science">Science</option>
-                                                        <option value="Job-Readiness" selected>Job Readiness</option>
-                                                        <option value="Independent-Living">Independent Living</option>
-                                                        <option value="Other">Other</option>
-                                                        <% } else if(resource.subject==="Independent-Living" ) { %>
-                                                            <option value="Math">Math</option>
-                                                            <option value="Language">Language</option>
-                                                            <option value="Games">Games</option>
-                                                            <option value="Science">Science</option>
-                                                            <option value="Job-Readiness">Job Readiness</option>
-                                                            <option value="Independent-Living" selected>Independent
-                                                                Living</option>
-                                                            <option value="Other">Other</option>
-                                                            <% } else if(resource.subject==="Other" ) { %>
-                                                                <option value="Math">Math</option>
-                                                                <option value="Language">Language</option>
-                                                                <option value="Games">Games</option>
-                                                                <option value="Science">Science</option>
-                                                                <option value="Job-Readiness">Job Readiness</option>
-                                                                <option value="Independent-Living">Independent Living
-                                                                </option>
-                                                                <option value="Other" selected>Other</option>
-                                                                <% } %>
+                                    <% for(let subject of subjects){ %>
+                                        <option value="<%= subject %> " <%=resource.subject===subject ? 'selected' : ''
+                                            %> >
+                                            <%= subject %>
+                                                <% } %>
                                 </select>
 
                                 <label for="name">NAME</label>

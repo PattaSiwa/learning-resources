@@ -1,6 +1,11 @@
 const express = require('express');
+const { findById } = require('../models/resource');
 const router = express.Router();
 const Resource = require('../models/resource')
+
+
+
+const subjects = ["Math", "Games", "Science", "Language", "Job-Readiness", "Independent-Living", "Other"]
 // const multer = require('multer')
 
 // const storage = multer.diskStorage({
@@ -24,112 +29,103 @@ const Resource = require('../models/resource')
 // })
 
 //index route 
-router.get('/', (req, res) => {
-    Resource.find({}, (err, foundResources, next) => {
-        if (err) { //null is the query was ok
-            console.log(err)
-            next(err)
-        } else {
-            const sortedResources = foundResources.sort((a, b) => {
-                return (a.subject > b.subject) ? 1 : -1
-            })
-            console.log(sortedResources)
-            res.render('resource/index.ejs', {
-                resource: sortedResources
-            })
-        }
+router.get('/', async (req, res) => {
+    const resources = await Resource.find({})
+    const sortedResources = resources.sort((a, b) => {
+        return (a.subject > b.subject) ? 1 : -1
+    })
+    res.render('resource/index.ejs', {
+        resource: sortedResources
     })
 })
+
 
 //seed route 
-router.get('/seed', (req, res) => {
+// router.get('/seed', (req, res) => {
 
 
-    Resource.create([
-        {
-            name: 'Snakes and Ladders',
-            url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
-            description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
-            subject: "Math",
-            img: "/uploads/images/snakesladders.png"
+//     Resource.create([
+//         {
+//             name: 'Snakes and Ladders',
+//             url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
+//             description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
+//             subject: "Math",
+//             img: "/uploads/images/snakesladders.png"
 
-        },
-        {
-            name: 'Match The Memory',
-            url: 'https://matchthememory.com/',
-            description: "Memory game where you match cards to help improve your memory",
-            subject: "Games",
-            img: "/uploads/images/memory.png"
+//         },
+//         {
+//             name: 'Match The Memory',
+//             url: 'https://matchthememory.com/',
+//             description: "Memory game where you match cards to help improve your memory",
+//             subject: "Games",
+//             img: "/uploads/images/memory.png"
 
-        },
-        {
-            name: 'Battleship',
-            url: 'http://en.battleship-game.org/id22892859/classic',
-            description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
-            subject: "Games",
-            img: "/uploads/images/battleship.png"
+//         },
+//         {
+//             name: 'Battleship',
+//             url: 'http://en.battleship-game.org/id22892859/classic',
+//             description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
+//             subject: "Games",
+//             img: "/uploads/images/battleship.png"
 
-        },
-    ], (err, data) => {
-        if (err) {
-            console.log(err)
-        }
-        res.redirect('/resource')
-    })
-})
+//         },
+//     ], (err, data) => {
+//         if (err) {
+//             console.log(err)
+//         }
+//         res.redirect('/resource')
+//     })
+// })
 
 // new route
 router.get('/new', (req, res) => {
-    res.render('resource/new.ejs')
+    res.render('resource/new.ejs', {
+        subjects: subjects
+    })
 })
 
 // post route "create"
 
-router.post('/', (req, res) => {
-    const newResource = req.body
+router.post('/', async (req, res) => {
+    const recievedResource = req.body
 
-    if (newResource.img === '') {
-        newResource.img = "https://images.unsplash.com/photo-1612385763901-68857dd4c43c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+    if (recievedResource.img === '') {
+        //if they dont put in image then put in this randomizer image from unsplash
+        recievedResource.img = 'https://source.unsplash.com/collection/4303775'
     }
 
-    Resource.create(newResource, (err, createdResource) => {
-        if (err) {
-            res.send(err)
-        } else {
-            res.redirect('/resource')
-        }
-    })
+    const newResource = new Resource(recievedResource)
+    await newResource.save()
+
+    res.redirect('/resource')
+
 })
 
 // Delete route
-router.delete('/:index', (req, res) => {
-    Resource.findByIdAndRemove(req.params.index, (err, data) => {
-        if (err) {
-            console.log(err)
-        } else {
-            // redirect to the index so the user can see that the fruit got deleted
-            // console.log(data)
-            res.redirect('/resource')
-        }
-    })
+router.delete('/:index', async (req, res) => {
+    const index = req.params.index
+    const deletedResource = await Resource.findByIdAndRemove(index)
+    res.redirect('/resource')
+
 })
 
 // EDIT route
-router.get('/:index/edit', (req, res) => {
-    Resource.findById(req.params.index, (err, foundResource) => {
-        res.render('resource/edit.ejs', {
-            resource: foundResource,
-            // currentUser: req.session.currentUser
-        })
-
+router.get('/:index/edit', async (req, res) => {
+    const index = req.params.index
+    const resource = await Resource.findById(index)
+    res.render('resource/edit.ejs', {
+        resource: resource,
+        subjects: subjects
+        // currentUser: req.session.currentUser
     })
+
 })
 
 //UPDATE route 
-router.put('/:index', (req, res) => {
-    Resource.findByIdAndUpdate(req.params.index, req.body, { new: true }, (err, updatedResource) => {
-        res.redirect('/resource')
-    })
+router.put('/:index', async (req, res) => {
+    const index = req.params.index
+    const resource = await Resource.findByIdAndUpdate(index, req.body, { runValidators: true, new: true });
+    res.redirect(`/resource/${index}`)
 })
 
 
