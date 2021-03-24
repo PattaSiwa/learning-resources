@@ -1,4 +1,6 @@
-# Learning Resources
+<img src="public/img/logo.png">
+
+# Learning Resources 
 
 ### About this project
 
@@ -13,9 +15,13 @@
 ### Technologies used
     
     Languages: HTML, CSS, JavaScript
-    Framework/Library: Express, EJS, Mongoose, Bootstrap
+    Framework/Library: Express, EJS, Mongoose, Passport, Flash
     Database: MongoDB
     Design Pattern: MVC (Models, Views, Controllers), RESTful API
+
+### Other Resources
+
+    Unsplash.com
 
 ### User Story
     - User will be able to view a collection of online learning resources
@@ -29,5 +35,6 @@
       - Admin access will allow user to Delete a resource
   
 ### Wireframe
+
 
 <img src="public/img/wireframe.png">
