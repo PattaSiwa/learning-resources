@@ -69,14 +69,26 @@ router.get('/:index/edit', isAdmin, catchAsync(async (req, res) => {
 //user update
 router.put('/:index', isAdmin, catchAsync(async (req, res) => {
     const index = req.params.index
-    if (req.body.username.toLowerCase() === 'admin') {
-        req.flash('error', 'Cannot make account with that name')
-        res.redirect('/users/manage')
+    const users = await User.find({})
+    for (let user of users) {
+        if (user.username === req.body.username) {
+            req.flash('error', 'Cannot make account with that name')
+            res.redirect('/users/manage')
+        }
     }
+
     const updateUser = await User.findByIdAndUpdate(index, req.body, { runValidators: true, new: true });
     req.flash('success', 'User Updated')
     res.redirect('/users/manage')
 
 }))
 
+// user delete
+router.delete('/:index', isAdmin, catchAsync(async (req, res) => {
+    const index = req.params.index
+    const deletedUser = await User.findByIdAndRemove(index)
+    req.flash('success', `User Deleted`)
+    res.redirect('/users/manage')
+
+}))
 module.exports = router

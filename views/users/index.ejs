@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/manage-style.css">
+    <title>Account Manager</title>
+    </head>
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <main>
+                <div class="flash">
+                    <%- include('../partials/flash.ejs') %>
+                </div>
+                <h1>Account Manager</h1>
+                <table id="user-table">
+                    <tr>
+                        <th>Username</th>
+                        <th>E-mail</th>
+                        <th>Manage</th>
+                    </tr>
+                    <% for(let user of users) { %>
+                        <% if(user.username !=="admin" ){ %>
+                            <tr>
+                                <td>
+                                    <%= user.username %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+
+                                <td class='manage'><a href="/users/<%= user.id %>/edit "><button
+                                            class='edit'>Edit</button></a>
+                                    <form method="POST" action="/users/<%= user.id %>?_method=DELETE">
+                                        <button class='delete'>Delete</button>
+                                    </form>
+                            </tr>
+                            <% } %>
+                                <% } %>
+                </table>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+    </html>
