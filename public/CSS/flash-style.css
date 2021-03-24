@@ -1,0 +1,14 @@
+.flash-message {
+   
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+}
+.sucess-message {
+    color: var(--dark-blue);
+}
+.error-message {
+    color: var(--red-orange);
+}

@@ -27,14 +27,14 @@
 
                                 <label for="subject">SUBJECT</label>
                                 <select name="subject" id="subject">
-                                    <% for(let subject of subjects){ %>
-                                        <option value="<%= subject %>" <%if(resource.subject===subject) {%>
+                                    <% for(let i=0; i < subjects.length;i ++){ %>
+                                        <option value="<%= subjects[i] %>" <%if(subjects[i]===resource.subject) {%>
                                             selected
                                             <% } else {%>
 
                                                 <% } %>
                                                     >
-                                                    <%= subject %>
+                                                    <%= subjects[i] %>
                                         </option>
                                         <% } %>
                                 </select>

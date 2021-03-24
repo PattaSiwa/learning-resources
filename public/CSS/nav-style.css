@@ -53,20 +53,6 @@
     
 }
 
-.flash-message {
-   
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 2rem 0;
-}
-.sucess-message {
-    color: var(--dark-blue);
-}
-.error-message {
-    color: var(--red-orange);
-}
 
 .toggle-btn {
     position: absolute;
