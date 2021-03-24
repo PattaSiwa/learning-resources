@@ -30,6 +30,10 @@ main {
                 1px -1px 10px var(--light-blue),
                 -1px 1px 10px var(--light-blue);
   }
+
+  .edit-container {
+    width: 50vw;
+  }
   .sidebar {
     width: 50%;
     background-repeat: no-repeat;
@@ -70,6 +74,10 @@ main {
     box-sizing: border-box;
     overflow: auto;
     transition: .3s;
+  }
+
+  .edit-user {
+    width: 100%
   }
   
 

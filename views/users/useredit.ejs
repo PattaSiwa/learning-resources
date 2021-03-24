@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/form-style.css">
+    <title>Edit User</title>
+    </head>
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <main>
+                <div class="flash">
+                    <%- include('../partials/flash.ejs') %>
+                </div>
+
+                <div class="container edit-container">
+
+
+                    <div class="form-container edit-user">
+                        <a href="/users/manage %> "><button class='back-btn'>Back</button></a>
+                        <h1>EDIT USER </h1>
+
+                        <form action="/users/login" method="POST">
+
+                            <fieldset>
+
+                                <legend>Change User Info</legend>
+
+                                <label for="username">USERNAME</label>
+                                <input class="text-input" id="username" name="username" type="text" required>
+                                <label for="email">E-MAIL</label>
+                                <input class="text-input" id="email" name="email" type="email" required>
+
+
+                            </fieldset>
+
+
+                            <input type="submit" value="UPDATE USER">
+
+                        </form>
+
+                    </div>
+                </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+    </html>

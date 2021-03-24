@@ -46,12 +46,20 @@ router.get('/logout', (req, res) => {
     res.redirect('/resource')
 })
 
+//user index
 router.get('/manage', isAdmin, async (req, res) => {
     const users = await User.find({})
 
     res.render('users/manage', {
         users
     })
+})
+
+//user edit
+router.get('/:index/edit', isAdmin, async (req, res) => {
+    const index = req.params.index
+    const user = await User.findById(index)
+    res.render('users/useredit')
 })
 
 module.exports = router

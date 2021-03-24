@@ -110,6 +110,12 @@ main {
     overflow: auto;
     transition: .3s;
 }
+.flash-message {
+    position: absolute;
+    left: 50;
+    transform: translateX(50);
+    top: 20vh;
+}
 
 .about-header{
     text-align: center;

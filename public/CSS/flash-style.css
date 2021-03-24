@@ -21,7 +21,7 @@
     padding-right: 1rem;
     padding-left: 1rem;
     width: auto;
-    color: var(--red-orange);
+    color: rgb(90, 29, 29);
 }
 
 .close {
