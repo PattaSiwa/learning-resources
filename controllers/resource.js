@@ -136,7 +136,6 @@ router.put('/:index', isAuthor, catchAsync(async (req, res) => {
 router.get('/:index', catchAsync(async (req, res, next) => {
     const index = req.params.index
     const resource = await Resource.findById(index).populate('author')
-    console.log(resource)
     if (!resource) {
         req.flash('error', 'Resource not found')
         res.redirect('/resource')

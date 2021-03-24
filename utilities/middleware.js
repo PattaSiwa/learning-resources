@@ -1,4 +1,4 @@
-const Resource = require('../models/resource')
+const Resource = require('../models/resource');
 
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -12,11 +12,11 @@ module.exports.isLoggedIn = (req, res, next) => {
 }
 
 module.exports.isAuthor = async (req, res, next) => {
-    const { id } = req.params;
-    const resource = await Resource.findById(id);
-    if (!resource.author.equals(req.user._id)) {
+    const { index } = req.params;
+    const resource = await Resource.findById(index);
+    if (!resource['author'].equals(req.user._id)) {
         req.flash('error', 'You do not have permission to do that!');
-        return res.redirect(`/resource/${id}`);
+        return res.redirect(`/resource/${index}`);
     }
     next();
 }
