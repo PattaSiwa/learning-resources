@@ -1,5 +1,5 @@
 const Resource = require('../models/resource');
-
+const User = require('../models/users')
 
 module.exports.isLoggedIn = (req, res, next) => {
 

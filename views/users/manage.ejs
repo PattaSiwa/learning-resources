@@ -27,9 +27,10 @@
                                 </td>
 
                                 <td class='manage'><a href="/users/<%= user.id %>/edit "><button
-                                            class='edit'>Edit</button></a><button type="submit"
-                                        class='delete'>Delete</button></td>
-
+                                            class='edit'>Edit</button></a>
+                                    <form method="POST" action="/users/<%= user.id %>?_method=DELETE">
+                                        <button class='delete'>Delete</button>
+                                    </form>
                             </tr>
                             <% } %>
                                 <% } %>
