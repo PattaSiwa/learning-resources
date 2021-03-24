@@ -6,3 +6,11 @@ toggleBtn.addEventListener('click', () => {
 })
 
 
+
+
+const closeBtn = document.querySelector('.close')
+const flashMessage = document.querySelector('.flash-message')
+
+closeBtn.addEventListener('click', () => {
+    flashMessage.classList.toggle('active')
+})

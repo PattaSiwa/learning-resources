@@ -125,6 +125,11 @@
     .navbar-links.active{
         display: flex;
     }
+
+    .register-link {
+        background-color: var(--orange);
+        
+    }
    
 }
 
