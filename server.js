@@ -54,14 +54,6 @@ app.use(methodOverride('_method'))
 app.use(session(sessionConfig))
 app.use(flash())
 
-//flash
-
-app.use((req, res, next) => {
-    res.locals.user = req.user;
-    res.locals.success = req.flash('success')
-    res.locals.error = req.flash('error')
-    next()
-})
 
 //authentication
 app.use(passport.initialize())
@@ -70,7 +62,14 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
+// flash
 
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    res.locals.success = req.flash('success')
+    res.locals.error = req.flash('error')
+    next()
+})
 
 //controllers
 

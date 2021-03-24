@@ -29,9 +29,10 @@
                                 <select name="subject" id="subject">
                                     <% for(let subject of subjects){ %>
                                         <option value="<%= subject %> " <%=resource.subject===subject ? 'selected' : ''
-                                            %> >
+                                            %>>
                                             <%= subject %>
-                                                <% } %>
+                                        </option>
+                                        <% } %>
                                 </select>
 
                                 <label for="name">NAME</label>

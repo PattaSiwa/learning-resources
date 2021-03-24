@@ -1,9 +1,22 @@
+const Resource = require('../models/resource')
+
 
 module.exports.isLoggedIn = (req, res, next) => {
-    console.log("REQ.USER...", req.user)
+
     if (!req.isAuthenticated()) {
+        req.session.returnTo = req.originalUrl
         req.flash('error', "You must be logged in to view this page")
         return res.redirect('/users/login')
     }
     next()
+}
+
+module.exports.isAuthor = async (req, res, next) => {
+    const { id } = req.params;
+    const resource = await Resource.findById(id);
+    if (!resource.author.equals(req.user._id)) {
+        req.flash('error', 'You do not have permission to do that!');
+        return res.redirect(`/resource/${id}`);
+    }
+    next();
 }

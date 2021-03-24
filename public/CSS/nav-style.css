@@ -1,13 +1,10 @@
 
 .navbar {
-    min-height: 7vh;
-
     display: flex;
     justify-content: space-between ;
     align-items: center;
     background-color:var(--white-beige);
     padding:0;
-    
     z-index: 1;
     position: sticky;
     top: 0;
@@ -43,6 +40,7 @@
 
 .register-link {
     background-color: var(--light-blue);
+    
 }
 
 .register-link:hover {
@@ -72,7 +70,7 @@
 
 .toggle-btn {
     position: absolute;
-    top: .75rem;
+    top: 1.2rem;
     right: 1rem;
     display: none;
     flex-direction: column;
@@ -98,8 +96,15 @@
 
 @media screen and (max-width: 1000px) {
     .navbar-links li a {
-        font-size: 1.4rem;
-        padding: 1.8rem
+        font-size: 1.8rem;
+        padding: 2rem
+    }
+   
+}
+@media screen and (max-width: 800px) {
+    .navbar-links li a {
+        font-size: 1.2rem;
+        padding: 1.5rem
     }
    
 }

@@ -4,7 +4,7 @@ header {
     min-height: 15vh;
     height: auto;
     background: rgb(131,167,201);
-background: radial-gradient(circle, rgba(131,167,201,1) 40%, rgba(208,203,198,1) 100%);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,7 +179,7 @@ background-color: var(--orange)
 
   @media screen and (max-width: 700px) {
     :root {
-      font-size: 12px;
+      font-size: 10px;
     }
     .re-ul{
         justify-content: center;
@@ -190,7 +190,7 @@ background-color: var(--orange)
 
   @media screen and (max-width: 500px) {
     :root {
-      font-size: 12px;
+      font-size: 10px;
     }
 
     h1{

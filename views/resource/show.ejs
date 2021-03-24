@@ -19,15 +19,19 @@
                             <p><strong>Description: </strong>
                                 <%= resource.description %>
                             </p>
+                            <p><small>
+                                    <%= resource.author.username %>
+                                </small></p>
                         </div>
                     </div>
                     <div class="buttons">
                         <a href="<%= resource.url %> " target="_blank"><button id='go-btn'>Go to Resource!</button></a>
-                        <a href="/resource/<%=resource.id%>/edit"><button id='edit-btn'>Edit</button></a>
-                        <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
-                            <button id='delete-btn'>Delete</button>
-                        </form>
-
+                        <% if(user && resource.author.equals(user.id)) {%>
+                            <a href="/resource/<%=resource.id%>/edit"><button id='edit-btn'>Edit</button></a>
+                            <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
+                                <button id='delete-btn'>Delete</button>
+                            </form>
+                            <% } %>
                     </div>
 
             </main>

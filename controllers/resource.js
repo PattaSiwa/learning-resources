@@ -4,10 +4,11 @@ const router = express.Router();
 const Resource = require('../models/resource');
 const ExpressError = require('../utilities/ExpressError');
 const catchAsync = require('../utilities/catchAsync')
-const { isLoggedIn } = require('../utilities/middleware')
+const { isLoggedIn, isAuthor } = require('../utilities/middleware')
 
 
 const subjects = ["Math", "Games", "Science", "Language", "Job-Readiness", "Independent-Living", "Other"]
+
 
 
 //index route 
@@ -22,7 +23,7 @@ router.get('/', catchAsync(async (req, res) => {
 }))
 
 
-//seed route 
+//seed route
 // router.get('/seed', (req, res) => {
 
 
@@ -32,7 +33,8 @@ router.get('/', catchAsync(async (req, res) => {
 //             url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
 //             description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
 //             subject: "Math",
-//             img: "/uploads/images/snakesladders.png"
+//             img: "/uploads/images/snakesladders.png",
+//             author: '605a8af90318146af80d7c59'
 
 //         },
 //         {
@@ -40,7 +42,8 @@ router.get('/', catchAsync(async (req, res) => {
 //             url: 'https://matchthememory.com/',
 //             description: "Memory game where you match cards to help improve your memory",
 //             subject: "Games",
-//             img: "/uploads/images/memory.png"
+//             img: "/uploads/images/memory.png",
+//             author: '605a8af90318146af80d7c59',
 
 //         },
 //         {
@@ -48,7 +51,17 @@ router.get('/', catchAsync(async (req, res) => {
 //             url: 'http://en.battleship-game.org/id22892859/classic',
 //             description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
 //             subject: "Games",
-//             img: "/uploads/images/battleship.png"
+//             img: "/uploads/images/battleship.png",
+//             author: '605a8af90318146af80d7c59'
+
+//         },
+//         {
+//             name: 'Drawasaurus',
+//             url: 'https://www.drawasaurus.org/',
+//             description: "Online Pictionary game. You can create your own private room to play with your friends or join a public room and make new friends while practicing your art skills!",
+//             subject: "Games",
+//             img: "https://i.ytimg.com/vi/k5un60wuCfM/maxresdefault.jpg",
+//             author: '605a8af90318146af80d7c59'
 
 //         },
 //     ], (err, data) => {
@@ -75,6 +88,7 @@ router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
         //if they dont put in image then put in image from unsplash
         recievedResource.img = 'https://images.unsplash.com/photo-1574492909706-09f2b2f0d909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
     }
+    recievedResource.author = req.user.id;
     const newResource = new Resource(recievedResource)
     await newResource.save()
     req.flash('success', 'Resource Added! Thank you for your contribution!')
@@ -83,8 +97,10 @@ router.post('/', isLoggedIn, catchAsync(async (req, res, next) => {
 }))
 
 // Delete route
-router.delete('/:index', catchAsync(async (req, res) => {
+router.delete('/:index', isAuthor, catchAsync(async (req, res) => {
     const index = req.params.index
+    const resource = await Resource.findById(index)
+
     const deletedResource = await Resource.findByIdAndRemove(index)
     req.flash('success', `Resource Deleted!`)
     res.redirect('/resource')
@@ -92,7 +108,7 @@ router.delete('/:index', catchAsync(async (req, res) => {
 }))
 
 // EDIT route
-router.get('/:index/edit', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/:index/edit', isLoggedIn, isAuthor, catchAsync(async (req, res) => {
     const index = req.params.index
     const resource = await Resource.findById(index)
     if (!resource) {
@@ -102,15 +118,15 @@ router.get('/:index/edit', isLoggedIn, catchAsync(async (req, res) => {
     res.render('resource/edit.ejs', {
         resource: resource,
         subjects: subjects
-        // currentUser: req.session.currentUser
+
     })
 
 }))
 
 //UPDATE route 
-router.put('/:index', catchAsync(async (req, res) => {
+router.put('/:index', isAuthor, catchAsync(async (req, res) => {
     const index = req.params.index
-    const resource = await Resource.findByIdAndUpdate(index, req.body, { runValidators: true, new: true });
+    const updateResource = await Resource.findByIdAndUpdate(index, req.body, { runValidators: true, new: true });
     req.flash('success', 'Resource Updated!')
     res.redirect(`/resource/${index}`)
 }))
@@ -119,7 +135,8 @@ router.put('/:index', catchAsync(async (req, res) => {
 //show route
 router.get('/:index', catchAsync(async (req, res, next) => {
     const index = req.params.index
-    const resource = await Resource.findById(index)
+    const resource = await Resource.findById(index).populate('author')
+    console.log(resource)
     if (!resource) {
         req.flash('error', 'Resource not found')
         res.redirect('/resource')
