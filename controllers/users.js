@@ -59,7 +59,11 @@ router.get('/manage', isAdmin, async (req, res) => {
 router.get('/:index/edit', isAdmin, async (req, res) => {
     const index = req.params.index
     const user = await User.findById(index)
-    res.render('users/useredit')
+    if (!user) {
+        req.flash('error', 'User not found')
+        res.redirect('/users/manage')
+    }
+    res.render('users/useredit', { user })
 })
 
 module.exports = router
