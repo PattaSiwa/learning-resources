@@ -17,7 +17,7 @@
                         <a href="/users/manage %> "><button class='back-btn'>Back</button></a>
                         <h1>EDIT USER </h1>
 
-                        <form action="/users/login" method="POST">
+                        <form action="/users/<%= user.id %>?_method=PUT" method="POST">
 
                             <fieldset>
 
