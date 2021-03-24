@@ -15,12 +15,15 @@
             <li><a class="nav-link" href="/resource">Collection</a></li>
             <li><a class="nav-link" href="/resource/new">Add Resource</a></li>
             <li><a class="nav-link" href="#contact">Contact</a></li>
-            <% if(!user) { %>
-                <li><a class="nav-link " href="/users/register">Register</a></li>
-                <li><a class="nav-link register-link" href="/users/login">Login</a></li>
-                <% } else { %>
-                    <li><a class="nav-link register-link" href="/users/logout">Logout</a></li>
-                    <% } %>
+            <% if(user && user.username==="admin" ){ %>
+                <li><a class="nav-link " href="/users/manage">Account</a></li>
+                <% } %>
+                    <% if(!user) { %>
+                        <li><a class="nav-link " href="/users/register">Register</a></li>
+                        <li><a class="nav-link register-link" href="/users/login">Login</a></li>
+                        <% } else { %>
+                            <li><a class="nav-link register-link" href="/users/logout">Logout</a></li>
+                            <% } %>
         </ul>
     </div>
 </nav>

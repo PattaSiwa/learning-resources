@@ -1,0 +1,44 @@
+main {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--red-orange)
+}
+
+#user-table {
+    font-family: 'Montserrat', sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  
+  #user-table td, #user-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #user-table tr:nth-child(even){
+      background-color: #dad8d8;
+    }
+
+    #user-table tr {
+    background-color: var(--white-beige);
+}
+  
+  
+  
+  
+  #user-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--light-blue);
+    color: white;
+  }

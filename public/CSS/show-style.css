@@ -32,8 +32,12 @@ p {
     font-size: 2rem;
     line-height: 2.5rem;
     padding: 1rem;
+   
 }
 
+small {
+    font-style: italic;
+}
 .content{
     width: 700px;
     min-height: 350px;
@@ -116,6 +120,9 @@ button:hover {
 
 #go-btn {
     background-color: rgb(88, 202, 202);
+}
+#back-btn {
+    background-color: var(--light-blue)
 }
 
 @media screen and (max-width: 1000px) {

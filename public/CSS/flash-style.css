@@ -9,6 +9,7 @@
     width: 300px;
     margin: auto;
     margin-top: 1rem;
+    transition: .4s;
 }
 .sucess-message {
     background-color: rgba(161, 212, 193,0.5);

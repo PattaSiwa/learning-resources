@@ -3,6 +3,7 @@ const router = express.Router()
 const passport = require('passport')
 const User = require('../models/users')
 const catchAsync = require('../utilities/catchAsync')
+const { isAdmin } = require('../utilities/middleware')
 
 
 router.get('/register', (req, res) => {
@@ -43,6 +44,14 @@ router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success', "You've Logged Out!")
     res.redirect('/resource')
+})
+
+router.get('/manage', isAdmin, async (req, res) => {
+    const users = await User.find({})
+
+    res.render('users/manage', {
+        users
+    })
 })
 
 module.exports = router

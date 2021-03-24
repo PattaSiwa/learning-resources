@@ -20,3 +20,12 @@ module.exports.isAuthor = async (req, res, next) => {
     }
     next();
 }
+
+module.exports.isAdmin = async (req, res, next) => {
+
+    if (!req.user || req.user.id !== "605a8af90318146af80d7c59") {
+        req.flash('error', 'You do not have permission to do that!');
+        return res.redirect(`/home`);
+    }
+    next();
+}
