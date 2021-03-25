@@ -31,7 +31,7 @@ db.once('open', () => {
     console.log("Database Connected")
 })
 
-session config
+// session config
 const sessionConfig = {
     secret: process.env.SECRET,
     resave: false,
