@@ -16,6 +16,8 @@ const ExpressError = require('./utilities/ExpressError')
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODBURI
 
+console.log(mongoURI)
+
 const db = mongoose.connection;
 
 mongoose.connect(mongoURI, {
