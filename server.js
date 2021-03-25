@@ -31,12 +31,12 @@ db.once('open', () => {
     console.log("Database Connected")
 })
 
-//session config
-// const sessionConfig = {
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-// }
+session config
+const sessionConfig = {
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+}
 
 app.get('/testing', (req, res) => {
     send('hello this is testing')
@@ -52,7 +52,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
-// app.use(session(sessionConfig))
+app.use(session(sessionConfig))
 app.use(flash())
 
 
