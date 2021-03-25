@@ -32,11 +32,15 @@ db.once('open', () => {
 })
 
 //session config
-const sessionConfig = {
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false,
-}
+// const sessionConfig = {
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+// }
+
+app.get('/testing', (req, res) => {
+    send('hello this is testing')
+})
 
 //ejs
 
@@ -48,7 +52,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
-app.use(session(sessionConfig))
+// app.use(session(sessionConfig))
 app.use(flash())
 
 
@@ -76,6 +80,7 @@ app.use('/resource', resourceController)
 
 // Users routes
 const usersController = require('./controllers/users')
+const { send } = require('process')
 app.use('/users', usersController)
 
 // home page
