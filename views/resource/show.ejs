@@ -19,22 +19,34 @@
                             <p><strong>Description: </strong>
                                 <%= resource.description %>
                             </p>
-                            <% if(resource.author.username !=='admin' ) {%>
-                                <p><small>
-                                        <%= resource.author.username %>
-                                    </small></p>
-                                <% } %>
+                            <% if(resource.author){ %>
+                                <% if(resource.author.username !=='admin' ) {%>
+                                    <p><small>
+                                            <%= resource.author.username %>
+                                        </small></p>
+                                    <% } %>
+                                        <% } %>
                         </div>
                     </div>
                     <div class="buttons">
                         <a href="/resource"><button id='back-btn'>Back to Collection</button></a>
                         <a href="<%= resource.url %> " target="_blank"><button id='go-btn'>Go to Resource!</button></a>
-                        <% if(user && (resource.author.equals(user.id)|| user.username==='admin' )) {%>
-                            <a href="/resource/<%=resource.id%>/edit"><button id='edit-btn'>Edit</button></a>
-                            <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
-                                <button id='delete-btn'>Delete</button>
-                            </form>
-                            <% } %>
+                        <% if(resource.author){ %>
+                            <% if(user && (resource.author.equals(user.id)|| user.username==='admin' )) {%>
+                                <a href="/resource/<%=resource.id%>/edit"><button id='edit-btn'>Edit</button></a>
+                                <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
+                                    <button id='delete-btn'>Delete</button>
+                                </form>
+                                <% } %>
+                                    <% } else { %>
+                                        <% if(user.username==='admin' ) {%>
+                                            <a href="/resource/<%=resource.id%>/edit"><button
+                                                    id='edit-btn'>Edit</button></a>
+                                            <form method="POST" action="/resource/<%= resource.id %>?_method=DELETE">
+                                                <button id='delete-btn'>Delete</button>
+                                            </form>
+                                            <% } %>
+                                                <% } %>
                     </div>
 
             </main>
