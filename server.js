@@ -31,6 +31,7 @@ db.once('open', () => {
 
 //session config
 const sessionConfig = {
+    name: process.env.NAME,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,

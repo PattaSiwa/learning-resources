@@ -4,7 +4,7 @@ const router = express.Router();
 const Resource = require('../models/resource');
 const ExpressError = require('../utilities/ExpressError');
 const catchAsync = require('../utilities/catchAsync')
-const { isLoggedIn, isAuthor } = require('../utilities/middleware')
+const { isLoggedIn, isAuthor, isAdmin } = require('../utilities/middleware')
 
 
 const subjects = ["Math", "Games", "Science", "Language", "Job-Readiness", "Independent-Living", "Other"]
@@ -24,53 +24,53 @@ router.get('/', catchAsync(async (req, res) => {
 
 
 //seed route
-// router.get('/seed', (req, res) => {
+router.get('/seed', isAdmin, catchAsync(async (req, res) => {
 
 
-//     Resource.create([
-//         {
-//             name: 'Snakes and Ladders',
-//             url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
-//             description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
-//             subject: "Math",
-//             img: "/uploads/images/snakesladders.png",
-//             author: '605a8af90318146af80d7c59'
+    Resource.create([
+        {
+            name: 'Snakes and Ladders',
+            url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
+            description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
+            subject: "Math",
+            img: "/uploads/images/snakesladders.png",
+            author: '605a8af90318146af80d7c59'
 
-//         },
-//         {
-//             name: 'Match The Memory',
-//             url: 'https://matchthememory.com/',
-//             description: "Memory game where you match cards to help improve your memory",
-//             subject: "Games",
-//             img: "/uploads/images/memory.png",
-//             author: '605a8af90318146af80d7c59',
+        },
+        {
+            name: 'Match The Memory',
+            url: 'https://matchthememory.com/',
+            description: "Memory game where you match cards to help improve your memory",
+            subject: "Games",
+            img: "/uploads/images/memory.png",
+            author: '605a8af90318146af80d7c59',
 
-//         },
-//         {
-//             name: 'Battleship',
-//             url: 'http://en.battleship-game.org/id22892859/classic',
-//             description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
-//             subject: "Games",
-//             img: "/uploads/images/battleship.png",
-//             author: '605a8af90318146af80d7c59'
+        },
+        {
+            name: 'Battleship',
+            url: 'http://en.battleship-game.org/id22892859/classic',
+            description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
+            subject: "Games",
+            img: "/uploads/images/battleship.png",
+            author: '605a8af90318146af80d7c59'
 
-//         },
-//         {
-//             name: 'Drawasaurus',
-//             url: 'https://www.drawasaurus.org/',
-//             description: "Online Pictionary game. You can create your own private room to play with your friends or join a public room and make new friends while practicing your art skills!",
-//             subject: "Games",
-//             img: "https://i.ytimg.com/vi/k5un60wuCfM/maxresdefault.jpg",
-//             author: '605a8af90318146af80d7c59'
+        },
+        {
+            name: 'Drawasaurus',
+            url: 'https://www.drawasaurus.org/',
+            description: "Online Pictionary game. You can create your own private room to play with your friends or join a public room and make new friends while practicing your art skills!",
+            subject: "Games",
+            img: "https://i.ytimg.com/vi/k5un60wuCfM/maxresdefault.jpg",
+            author: '605a8af90318146af80d7c59'
 
-//         },
-//     ], (err, data) => {
-//         if (err) {
-//             console.log(err)
-//         }
-//         res.redirect('/resource')
-//     })
-// })
+        },
+    ], (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        res.redirect('/resource')
+    })
+}))
 
 // new route
 router.get('/new', isLoggedIn, (req, res) => {

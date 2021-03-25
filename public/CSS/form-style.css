@@ -151,7 +151,7 @@ main {
     height: 75px;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: rgb(68, 67, 67);
     border: 1px solid var(--dark-blue);
   }
