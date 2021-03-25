@@ -13,6 +13,10 @@ router.get('/register', (req, res) => {
 router.post('/register', catchAsync(async (req, res) => {
     try {
         const { email, username, password } = req.body
+        if (username.toLowerCase() === 'admin') {
+            req.flash('error', `Invalid Username, Please try again`)
+            res.redirect('/users/register')
+        }
         const user = new User({ email, username })
         const registeredUser = await User.register(user, password)
         req.login(registeredUser, (err) => {

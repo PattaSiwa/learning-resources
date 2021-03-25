@@ -10,6 +10,9 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/users')
 const ExpressError = require('./utilities/ExpressError')
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require("helmet");
+
 
 
 //database
@@ -54,6 +57,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(session(sessionConfig))
 app.use(flash())
+app.use(mongoSanitize());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+    })
+);
 
 
 //authentication
@@ -95,9 +104,9 @@ app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 })
 
-app.get('/error', (req, res) => {
-    chicken.fly()
-})
+// app.get('/error', (req, res) => {
+//     chicken.fly()
+// })
 
 
 app.use((err, req, res, next) => {
@@ -105,6 +114,8 @@ app.use((err, req, res, next) => {
     if (!err.message) {
         err.message = "Somethign went wrong"
     }
+    console.log(err)
+    req.flash('error', 'Please contact Admin if problem persist')
     res.status(statusCode).render('error', { err })
 
 })
