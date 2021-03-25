@@ -33,15 +33,9 @@ db.once('open', () => {
 
 //session config
 const sessionConfig = {
-    name: process.env.NAME,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 3, //milisecends, seconds,mins,hours
-        maxAge: 1000 * 60 * 60 * 24 * 3  // 3 day limit same as above
-    }
+    saveUninitialized: false,
 }
 
 //ejs
