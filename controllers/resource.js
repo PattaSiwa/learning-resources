@@ -23,6 +23,7 @@ router.get('/', catchAsync(async (req, res) => {
     })
 }))
 
+// creating a page for each subject by looping and making each route 
 for (let sub of subjects) {
     router.get(`/${sub}`, catchAsync(async (req, res) => {
         const resources = await Resource.find({ subject: sub })

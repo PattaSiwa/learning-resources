@@ -183,23 +183,24 @@ background-color: var(--orange)
 
 #sort-btn {
     font-size: 1.5rem;
-    padding: .5rem;
+    padding: .6rem;
     margin-left:.3rem;
-    color: var(--dark-blue);
+    color: var(--white-beige);
     border: none;
-    background: var(--orange);
-    box-shadow: 2px 2px var(--light-blue);
+    background: var(--dark-blue);
+    box-shadow: 2px 2px var(--orange);
     transition: .3s;
 }
 
 #sort-btn:hover {
     cursor: pointer;
-    background: var(--light-blue);
-    box-shadow: 2px 2px rgb(233, 149, 40);
+    background: var(--orange);
+    box-shadow: 2px 2px var(--dark-blue);
 }
 
-input ,select{
+select{
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
     margin: 10px 0;
     padding: 8px;
     box-sizing: border-box;

@@ -1,5 +1,5 @@
 .flash-message {
-   
+    z-index: 1;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
