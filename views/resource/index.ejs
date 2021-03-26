@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
-    <link rel="stylesheet" href="CSS/index-style.css">
+
+    <link rel="stylesheet" href="/CSS/index-style.css">
     <title>Sandbox</title>
     </head>
 
@@ -14,6 +15,22 @@
             </header>
             <main>
                 <%- include('../partials/flash.ejs') %>
+                    <div class="sort-container">
+                        <label for="sort">
+                            Sort By Subject
+                            <select name="sort" id="sort">
+                                <option value="/">All</option>
+                                <% for(let subject of subjects){ %>
+                                    <option value="/<%= subject %>">
+                                        <%= subject %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <button id="sort-btn">Sort</button>
+
+                        </label>
+                    </div>
+
                     <ul class='re-ul'>
                         <% for(let i=0; i < resource.length; i++){ %>
                             <li class="re-li">
@@ -38,4 +55,5 @@
 
             </main>
 
+            <script src="/JS/sort.js"></script>
             <%- include('../partials/footer.ejs') %>

@@ -52,7 +52,7 @@ main {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -168,6 +168,49 @@ background-color: var(--orange)
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
 }
+
+.sort-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.sort-container label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-blue)
+}
+
+#sort-btn {
+    font-size: 1.5rem;
+    padding: .5rem;
+    margin-left:.3rem;
+    color: var(--dark-blue);
+    border: none;
+    background: var(--orange);
+    box-shadow: 2px 2px var(--light-blue);
+    transition: .3s;
+}
+
+#sort-btn:hover {
+    cursor: pointer;
+    background: var(--light-blue);
+    box-shadow: 2px 2px rgb(233, 149, 40);
+}
+
+input ,select{
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid var(--dark-blue);
+  }
+  
+  input:focus, select:focus {
+    outline: 0;
+    border: 1px solid var(--light-blue);
+  }
+
 
 @media screen and (max-width: 1200px) {
     :root {

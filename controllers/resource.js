@@ -18,59 +18,23 @@ router.get('/', catchAsync(async (req, res) => {
         return (a.subject > b.subject) ? 1 : -1
     })
     res.render('resource/index.ejs', {
-        resource: sortedResources
+        resource: sortedResources,
+        subjects: subjects,
     })
 }))
 
+for (let sub of subjects) {
+    router.get(`/${sub}`, catchAsync(async (req, res) => {
+        const resources = await Resource.find({ subject: sub })
+        res.render('resource/index.ejs', {
+            resource: resources,
+            subjects: subjects,
+        })
+    }))
+}
 
-//seed route
-// router.get('/seed', isAdmin, catchAsync(async (req, res) => {
 
 
-//     Resource.create([
-//         {
-//             name: 'Snakes and Ladders',
-//             url: 'https://www.turtlediary.com/game/snakes-and-ladders.html',
-//             description: "Snakes and Ladders is an interactive online version of the classic board game.This game will improve the kid's counting skills, calculating skills and sharpen the mind.",
-//             subject: "Math",
-//             img: "/uploads/images/snakesladders.png",
-//             author: '605a8af90318146af80d7c59'
-
-//         },
-//         {
-//             name: 'Match The Memory',
-//             url: 'https://matchthememory.com/',
-//             description: "Memory game where you match cards to help improve your memory",
-//             subject: "Games",
-//             img: "/uploads/images/memory.png",
-//             author: '605a8af90318146af80d7c59',
-
-//         },
-//         {
-//             name: 'Battleship',
-//             url: 'http://en.battleship-game.org/id22892859/classic',
-//             description: "A web game based on the classic game Battleship. Let users play with each other across the web!",
-//             subject: "Games",
-//             img: "/uploads/images/battleship.png",
-//             author: '605a8af90318146af80d7c59'
-
-//         },
-//         {
-//             name: 'Drawasaurus',
-//             url: 'https://www.drawasaurus.org/',
-//             description: "Online Pictionary game. You can create your own private room to play with your friends or join a public room and make new friends while practicing your art skills!",
-//             subject: "Games",
-//             img: "https://i.ytimg.com/vi/k5un60wuCfM/maxresdefault.jpg",
-//             author: '605a8af90318146af80d7c59'
-
-//         },
-//     ], (err, data) => {
-//         if (err) {
-//             console.log(err)
-//         }
-//         res.redirect('/resource')
-//     })
-// }))
 
 // new route
 router.get('/new', isLoggedIn, (req, res) => {
